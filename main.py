@@ -3,4 +3,5 @@
 #import C_StairCaseSolution
 #import D_mini_max_sum_Solution
 #import E_birthday_cake_candles
-import F_Time_Conversion
+#import F_Time_Conversion
+import G_Modify_the_Sequence
