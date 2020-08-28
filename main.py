@@ -1,4 +1,5 @@
 #import A_DiagnalDifferenceSolution
 #import B_PlusMinusSolution
 #import C_StairCaseSolution
-import D_mini_max_sum_Solution
+#import D_mini_max_sum_Solution
+import E_birthday_cake_candles
