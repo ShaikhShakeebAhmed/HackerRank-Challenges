@@ -5,9 +5,8 @@ import sys
 # Complete the staircase function below.
 #
 def staircase(n):
-  for i in range(0 , n, 1):
-    x = n - i
-    print(" " * x , "#" * i)
+  for i in range(1, n + 1):
+       print(' ' * (n - i) + '#' * i)
     #print("#" )
     
 n = int(input())
