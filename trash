@@ -107,3 +107,56 @@ print(arr[i])
           arr[i] = checkingVar
           print(arr[i])
           print("- 3")      
+
+
+           first = arr[i]
+      second = arr[i + 1] if i < len(arr) -1 else 0
+      third = arr[i + 2] if i < len(arr) -2 else 0
+
+      print(arr[i])
+      print("- 0")
+      
+
+      if first >= second and second >= third and i < len(arr) -2:
+        if first >= 1000000000 and second < 1000000000 and third < 1000000000:
+          arr[i + 1] = first + 1
+          arr[i + 2] =  arr[i + 1] + 1
+          count += 2
+          print(arr[i])
+          print(arr[i + 1])
+          print(arr[i + 2])
+          print("- 1")
+      elif first >= second and second <= third  and i < len(arr) -2:
+        if first < third:
+          arr[i] = arr[i + 1] - 1
+          arr[i + 2] = arr[i + 1] + 1
+          count += 2
+          #print(arr[i])
+          print(arr[i + 1])
+          #print(arr[i + 2])
+          print("- 2")
+        else:
+          arr[i + 1] = first + 1
+          arr[i + 2] =  arr[i + 1] + 1
+          count += 2
+          print(arr[i])
+          print(arr[i + 1])
+          print(arr[i + 2])
+          print("- 3")
+      elif first <= second and second >= third  and i < len(arr) -2:
+        if first < third:
+          arr[i + 1] = arr[i] + 1
+          arr[i + 2] = arr[i+1] + 1
+          count += 2
+          #print(arr[i])
+          print(arr[i + 1])
+          #print(arr[i + 2])
+          print("- 4")
+        else:
+          arr[i + 1] = first + 1
+          arr[i + 2] =  arr[i + 1] + 1
+          count += 2
+          print(arr[i])
+          print(arr[i + 1])
+          print(arr[i + 2])
+          print("- 5")
