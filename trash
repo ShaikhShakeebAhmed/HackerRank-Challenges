@@ -190,3 +190,10 @@ print(arr[i])
           count += 1
           #print(arr[i])
           print(arr[i] , "- 4")
+
+
+
+           if arr[i] <= arr[i + 1] or arr[i] == arr[i - 1] and arr[i] < 1000000000:
+        count = count - 1
+      elif arr[i] >= 1000000000:
+        count = count - 1
