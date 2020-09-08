@@ -16,22 +16,30 @@ def modifySequence(arr):
   
   #arr = sorted(arr , reverse = True)
   if len(arr) > 1:
-    for i in range(0 , len(arr)-1 , 1):
-      print(arr[i])
-      print("- 1")
-      countSequence = 1 
+    #for i in range(0 , len(arr)-1 , 1):
+      
+      countSequence = 0 
       firstOftheSeq = []
-      collectionOfAllSequences={}       
-      for j in range((i+1) , len(arr)-1 , 1):        
-        if arr[j] < arr[j + 1] and arr[j] > arr[j - 1]:
+      collectionOfAllSequences={} 
+      collectionOfAllNonSequences = []      
+      for j in range(0 , len(arr)-1 , 1):        
+        if arr[j] < arr[j + 1] and j != len(arr)-1 and arr[j] > arr[j - 1] and j != 0:
           firstOftheSeq.append(arr[j])
           firstOftheSeq.append(arr[j + 1])
-        elif len(firstOftheSeq) >= 1:
-          collectionOfAllSequences.append(firstOftheSeq) 
-          firstOftheSeq = []
-          countSequence += 1 
+          #print(firstOftheSeq)
+        elif j == 0 and arr[j] < arr[j + 1]:
+          firstOftheSeq.append(arr[j])
+          firstOftheSeq.append(arr[j + 1])
+        elif j ==  len(arr)-1 and arr[j] > arr[j - 1]:
+          firstOftheSeq.append(arr[j])          
+        else :
+          collectionOfAllNonSequences.append(arr[j])
+          if len(firstOftheSeq) > 0:
+            collectionOfAllSequences[countSequence] = firstOftheSeq
+            firstOftheSeq = []
+            countSequence += 1 
 
-
+  print(collectionOfAllNonSequences)
   print(collectionOfAllSequences)
   return count
 
