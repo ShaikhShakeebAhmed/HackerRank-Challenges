@@ -33,13 +33,16 @@ def modifySequence(arr):
         elif j ==  len(arr)-1 and arr[j] > arr[j - 1]:
           firstOftheSeq.append(arr[j])          
         else :
-          collectionOfAllNonSequences.append(arr[j])
           if len(firstOftheSeq) > 0:
             collectionOfAllSequences[countSequence] = firstOftheSeq
             firstOftheSeq = []
             countSequence += 1 
+          
+          collectionOfAllSequences[countSequence] = arr[j]
+          countSequence += 1 
+          #collectionOfAllNonSequences.append(arr[j])
 
-  print(collectionOfAllNonSequences)
+  #print(collectionOfAllNonSequences)
   print(collectionOfAllSequences)
   return count
 
