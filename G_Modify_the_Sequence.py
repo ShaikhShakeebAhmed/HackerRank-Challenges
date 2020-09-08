@@ -38,12 +38,23 @@ def modifySequence(arr):
             firstOftheSeq = []
             countSequence += 1 
           
-          collectionOfAllSequences[countSequence] = arr[j]
+          collectionOfAllSequences[countSequence] = [arr[j]]
           countSequence += 1 
           #collectionOfAllNonSequences.append(arr[j])
+      
+      for k in collectionOfAllSequences.keys():
+        if len(collectionOfAllSequences[k]) > 1:
+          print(collectionOfAllSequences[k])
+        else:
+          print(" - 1")
+          print(collectionOfAllSequences[k])
+          collectionOfAllSequences[k+1] = [collectionOfAllSequences[k][0] + 1]
+          print(collectionOfAllSequences[k + 1])
+          print(" - 1")
 
-  #print(collectionOfAllNonSequences)
-  print(collectionOfAllSequences)
+  
+  #print(collectionOfAllSequences)
+  #print(len(arr)-1)
   return count
 
 
