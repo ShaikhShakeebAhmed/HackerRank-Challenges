@@ -36,7 +36,7 @@ def modifySequence(arr):
           if len(firstOftheSeq) > 0:
             collectionOfAllSequences[countSequence] = firstOftheSeq
             firstOftheSeq = []
-            countSequence += 1 
+            countSequence += 1  
           
           collectionOfAllSequences[countSequence] = [arr[j]]
           countSequence += 1 
