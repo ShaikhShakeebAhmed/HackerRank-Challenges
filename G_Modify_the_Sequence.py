@@ -46,7 +46,7 @@ def modifySequence(arr):
         if len(collectionOfAllSequences[k]) > 1:
           print(collectionOfAllSequences[k])
         else:
-          print(" - 1")
+          print(" - 1") 
           print(collectionOfAllSequences[k])
           collectionOfAllSequences[k+1] = [collectionOfAllSequences[k][0] + 1]
           print(collectionOfAllSequences[k + 1])
