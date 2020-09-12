@@ -71,18 +71,35 @@ def modifySequence(arr):
       print(collectionOfAllSequences)
 
       listOfKeys=[]
+      listOfKeysOfSequences=[]
       countKeys = 0
       for k in collectionOfAllSequences.keys():
         if len(collectionOfAllSequences[k]) > 1:
+          
           if len(listOfKeys) > 0:
-            keysReversed = listOfKeys.reverse();
-            print(keysReversed)
+            print("listOfKeys" , listOfKeys)
+            keysReversed = listOfKeys[::-1]
+            listOfKeys=[]
+            print("reversed" , keysReversed)
             firstOfTheSequence = collectionOfAllSequences[k][0]
+            print("firstOfTheSequence" , firstOfTheSequence)
+            LastOfThePreviusSequence = collectionOfAllSequences[listOfKeysOfSequences[-1]][-1]
+            print("LastOfThePreviusSequence" , LastOfThePreviusSequence)
             completeSequence = collectionOfAllSequences[k]
+            print("completeSequence" , completeSequence)
             for i in keysReversed:
               lastValue = collectionOfAllSequences[i][0]
+              countingSmallers = 0
               for x in completeSequence:
-                if lastValue < 
+                if lastValue > x: 
+                   countingSmallers += 1
+                else:
+                  if countingSmallers > 0:
+                    collectionOfAllSequences[i] = [firstOfTheSequence - 1]
+
+          listOfKeysOfSequences.append(k)
+
+                 
               
 
         else:
