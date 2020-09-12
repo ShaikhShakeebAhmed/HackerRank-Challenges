@@ -21,36 +21,72 @@ def modifySequence(arr):
       countSequence = 0 
       firstOftheSeq = []
       collectionOfAllSequences={} 
-      collectionOfAllNonSequences = []      
-      for j in range(0 , len(arr)-1 , 1):        
-        if arr[j] < arr[j + 1] and j != len(arr)-1 and arr[j] > arr[j - 1] and j != 0:
-          firstOftheSeq.append(arr[j])
-          firstOftheSeq.append(arr[j + 1])
-          #print(firstOftheSeq)
-        elif j == 0 and arr[j] < arr[j + 1]:
-          firstOftheSeq.append(arr[j])
-          firstOftheSeq.append(arr[j + 1])
-        elif j ==  len(arr)-1 and arr[j] > arr[j - 1]:
-          firstOftheSeq.append(arr[j])          
-        else :
-          if len(firstOftheSeq) > 0:
-            collectionOfAllSequences[countSequence] = firstOftheSeq
-            firstOftheSeq = []
-            countSequence += 1  
+      collectionOfAllNonSequences = []   
+     # print(len(arr)-1)   
+      for j in range(len(arr)): 
+        #print("j is " , j)
+        if j < len(arr)-1:
+          if ((arr[j] < arr[j + 1] and arr[j] > arr[j - 1]) or (arr[j] > arr[j - 1]))  and j != 0:
+            firstOftheSeq.append(arr[j])
+            #firstOftheSeq.append(arr[j + 1])
+           # print(arr[j])
+            #print(j)
+            #print("- 1")
+          elif j == 0 and arr[j] < arr[j + 1]:
+            firstOftheSeq.append(arr[j])
+            #firstOftheSeq.append(arr[j + 1])
+            #print(arr[j])
+            #print(j)
+            #print("- 2")
+          elif j ==  len(arr)-1:
+            firstOftheSeq.append(arr[j]) 
+            #print(arr[j])
+            #print(j)
+            #print("- 3")         
+          else :
+            #print(j)
+            #print("- 4") 
+            if len(firstOftheSeq) > 0:
+              collectionOfAllSequences[countSequence] = firstOftheSeq
+              firstOftheSeq = []
+              countSequence += 1  
           
-          collectionOfAllSequences[countSequence] = [arr[j]]
-          countSequence += 1 
-          #collectionOfAllNonSequences.append(arr[j])
-      
+            collectionOfAllSequences[countSequence] = [arr[j]]
+            countSequence += 1 
+            #collectionOfAllNonSequences.append(arr[j])
+        elif arr[j] > arr[j - 1]:
+          firstOftheSeq.append(arr[j])
+          #firstOftheSeq.append(arr[j + 1])
+          #print(arr[j])
+          #print(j)
+          #print("- 5")
+          if len(firstOftheSeq) > 0:
+              collectionOfAllSequences[countSequence] = firstOftheSeq
+              firstOftheSeq = []
+              countSequence += 1
+          else:
+            collectionOfAllSequences[countSequence] = [arr[j]]
+            countSequence += 1
+
+      print(collectionOfAllSequences)
+
+      listOfKeys=[]
+      countKeys = 0
       for k in collectionOfAllSequences.keys():
         if len(collectionOfAllSequences[k]) > 1:
-          print(collectionOfAllSequences[k])
+          if len(listOfKeys) > 0:
+            keysReversed = listOfKeys.reverse();
+            print(keysReversed)
+            firstOfTheSequence = collectionOfAllSequences[k][0]
+            completeSequence = collectionOfAllSequences[k]
+            for i in keysReversed:
+              lastValue = collectionOfAllSequences[i][0]
+              for x in completeSequence:
+                if lastValue < 
+              
+
         else:
-          print(" - 1") 
-          print(collectionOfAllSequences[k])
-          collectionOfAllSequences[k+1] = [collectionOfAllSequences[k][0] + 1]
-          print(collectionOfAllSequences[k + 1])
-          print(" - 1")
+          listOfKeys.append(k)
 
   
   #print(collectionOfAllSequences)
