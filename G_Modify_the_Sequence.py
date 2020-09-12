@@ -24,28 +24,29 @@ def modifySequence(arr):
       collectionOfAllNonSequences = []   
      # print(len(arr)-1)   
       for j in range(len(arr)): 
-        #print("j is " , j)
+        print("j is " , j)
+        print("value" ,arr[j])
         if j < len(arr)-1:
           if ((arr[j] < arr[j + 1] and arr[j] > arr[j - 1]) or (arr[j] > arr[j - 1]))  and j != 0:
             firstOftheSeq.append(arr[j])
             #firstOftheSeq.append(arr[j + 1])
-           # print(arr[j])
+            print(arr[j])
             #print(j)
-            #print("- 1")
+            print("- 1")
           elif j == 0 and arr[j] < arr[j + 1]:
             firstOftheSeq.append(arr[j])
             #firstOftheSeq.append(arr[j + 1])
-            #print(arr[j])
+            print(arr[j])
             #print(j)
-            #print("- 2")
+            print("- 2")
           elif j ==  len(arr)-1:
             firstOftheSeq.append(arr[j]) 
-            #print(arr[j])
-            #print(j)
-            #print("- 3")         
+            print(arr[j])
+            print(j)
+            print("- 3")         
           else :
             #print(j)
-            #print("- 4") 
+            print("- 4") 
             if len(firstOftheSeq) > 0:
               collectionOfAllSequences[countSequence] = firstOftheSeq
               firstOftheSeq = []
@@ -87,15 +88,25 @@ def modifySequence(arr):
             print("LastOfThePreviusSequence" , LastOfThePreviusSequence)
             completeSequence = collectionOfAllSequences[k]
             print("completeSequence" , completeSequence)
-            for i in keysReversed:
-              lastValue = collectionOfAllSequences[i][0]
-              countingSmallers = 0
-              for x in completeSequence:
-                if lastValue > x: 
-                   countingSmallers += 1
-                else:
-                  if countingSmallers > 0:
-                    collectionOfAllSequences[i] = [firstOfTheSequence - 1]
+            completeLastSequence = collectionOfAllSequences[listOfKeysOfSequences[-1]]
+            print("completeLastSequence" , completeLastSequence)
+            getRequiredSmaller = firstOfTheSequence - len(keysReversed)-1
+            print("getRequiredSmaller" , getRequiredSmaller)
+            if LastOfThePreviusSequence <= getRequiredSmaller:
+              for i in keysReversed:
+                lastValue = collectionOfAllSequences[i][0]
+                print("lastValue" , lastValue)
+                countingSmallers = 0
+                for x in completeSequence:
+                  print("x" , x)
+                  if lastValue > x:
+                    countingSmallers += 1
+                  else:
+                    if countingSmallers > 0:
+                      print("collectionOfAllSequences Before" , collectionOfAllSequences[i])
+                      collectionOfAllSequences[i] = [firstOfTheSequence - 1]
+                      count += 1
+                      print("collectionOfAllSequences After" , collectionOfAllSequences[i])
 
           listOfKeysOfSequences.append(k)
 
