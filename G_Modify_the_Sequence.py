@@ -78,19 +78,26 @@ def modifySequence(arr):
         if len(collectionOfAllSequences[k]) > 1:
           
           if len(listOfKeys) > 0:
-            print("listOfKeys" , listOfKeys)
+
+            #print("listOfKeys" , listOfKeys)
             keysReversed = listOfKeys[::-1]
             listOfKeys=[]
-            print("reversed" , keysReversed)
+
+            #print("reversed" , keysReversed)
             firstOfTheSequence = collectionOfAllSequences[k][0]
-            print("firstOfTheSequence" , firstOfTheSequence)
-            LastOfThePreviusSequence = collectionOfAllSequences[listOfKeysOfSequences[-1]][-1]
-            print("LastOfThePreviusSequence" , LastOfThePreviusSequence)
-            completeSequence = collectionOfAllSequences[k]
-            print("completeSequence" , completeSequence)
-            completeLastSequence = collectionOfAllSequences[listOfKeysOfSequences[-1]]
-            print("completeLastSequence" , completeLastSequence)
+
+            #print("firstOfTheSequence" , firstOfTheSequence)            
+            LastOfThePreviusSequence = collectionOfAllSequences[listOfKeysOfSequences[-1]][-1] if len(listOfKeysOfSequences) > 0 else 0
+
+            #print("LastOfThePreviusSequence" , LastOfThePreviusSequence)
+            completeSequence = collectionOfAllSequences[k]          
+            
+            #print("completeSequence" , completeSequence)
+            completeLastSequence = collectionOfAllSequences[listOfKeysOfSequences[-1]] if len(listOfKeysOfSequences) > 0 else 0
+
+            #print("completeLastSequence" , completeLastSequence)
             getRequiredSmaller = firstOfTheSequence - len(keysReversed)-1
+
             print("getRequiredSmaller" , getRequiredSmaller)
             if LastOfThePreviusSequence <= getRequiredSmaller:
               for i in keysReversed:
