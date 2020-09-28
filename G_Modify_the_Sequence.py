@@ -21,7 +21,7 @@ def modifySequence(arr):
       countSequence = 0 
       firstOftheSeq = []
       collectionOfAllSequences={} 
-      collectionOfAllNonSequences = []   
+      collectionOfAllNonSequences = []    
      # print(len(arr)-1)   
       for j in range(len(arr)): 
         print("j is " , j)
