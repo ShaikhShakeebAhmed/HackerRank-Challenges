@@ -1,133 +1,22 @@
 import os
 import sys
 
-#
-# Complete the modifySequence function below.
-#
+
 def modifySequence(arr):
+  L=[] 
+  x= []
+  for i in range(1,len(arr)):
+    if 0 < arr[i] and arr[i] <= 1000000000:
+      if arr[i] - i > 0:
+        x.append(arr[i] - i)
 
-  count = 0  
-  testcount = 0
-  totallen = len(arr)
-  #count = totallen
-  countSequence = 0
-  firstOftheSeq = []
-  startSequence = 1000000000 - totallen
+  for (k,v) in enumerate(x):
+    L.append(max([L[i] for (i,n) in enumerate(x[:k]) if n<v] or [[]], key=len) + [v])
+
+  print(L)  
+  print (len(arr) - len(max(L, key=len)))
+ 
   
-  #arr = sorted(arr , reverse = True)
-  if len(arr) > 1:
-    #for i in range(0 , len(arr)-1 , 1):
-      
-      countSequence = 0 
-      firstOftheSeq = []
-      collectionOfAllSequences={} 
-      collectionOfAllNonSequences = []    
-     # print(len(arr)-1)   
-      for j in range(len(arr)): 
-        print("j is " , j)
-        print("value" ,arr[j])
-        if j < len(arr)-1:
-          if ((arr[j] < arr[j + 1] and arr[j] > arr[j - 1]) or (arr[j] > arr[j - 1]))  and j != 0:
-            firstOftheSeq.append(arr[j])
-            #firstOftheSeq.append(arr[j + 1])
-            print(arr[j])
-            #print(j)
-            print("- 1")
-          elif j == 0 and arr[j] < arr[j + 1]:
-            firstOftheSeq.append(arr[j])
-            #firstOftheSeq.append(arr[j + 1])
-            print(arr[j])
-            #print(j)
-            print("- 2")
-          elif j ==  len(arr)-1:
-            firstOftheSeq.append(arr[j]) 
-            print(arr[j])
-            print(j)
-            print("- 3")         
-          else :
-            #print(j)
-            print("- 4") 
-            if len(firstOftheSeq) > 0:
-              collectionOfAllSequences[countSequence] = firstOftheSeq
-              firstOftheSeq = []
-              countSequence += 1  
-          
-            collectionOfAllSequences[countSequence] = [arr[j]]
-            countSequence += 1 
-            #collectionOfAllNonSequences.append(arr[j])
-        elif arr[j] > arr[j - 1]:
-          firstOftheSeq.append(arr[j])
-          #firstOftheSeq.append(arr[j + 1])
-          #print(arr[j])
-          #print(j)
-          #print("- 5")
-          if len(firstOftheSeq) > 0:
-              collectionOfAllSequences[countSequence] = firstOftheSeq
-              firstOftheSeq = []
-              countSequence += 1
-          else:
-            collectionOfAllSequences[countSequence] = [arr[j]]
-            countSequence += 1
-
-      print(collectionOfAllSequences)
-
-      listOfKeys=[]
-      listOfKeysOfSequences=[]
-      countKeys = 0
-      for k in collectionOfAllSequences.keys():
-        if len(collectionOfAllSequences[k]) > 1:
-          
-          if len(listOfKeys) > 0:
-
-            #print("listOfKeys" , listOfKeys)
-            keysReversed = listOfKeys[::-1]
-            listOfKeys=[]
-
-            #print("reversed" , keysReversed)
-            firstOfTheSequence = collectionOfAllSequences[k][0]
-
-            #print("firstOfTheSequence" , firstOfTheSequence)            
-            LastOfThePreviusSequence = collectionOfAllSequences[listOfKeysOfSequences[-1]][-1] if len(listOfKeysOfSequences) > 0 else 0
-
-            #print("LastOfThePreviusSequence" , LastOfThePreviusSequence)
-            completeSequence = collectionOfAllSequences[k]          
-            
-            #print("completeSequence" , completeSequence)
-            completeLastSequence = collectionOfAllSequences[listOfKeysOfSequences[-1]] if len(listOfKeysOfSequences) > 0 else 0
-
-            #print("completeLastSequence" , completeLastSequence)
-            getRequiredSmaller = firstOfTheSequence - len(keysReversed)-1
-
-            print("getRequiredSmaller" , getRequiredSmaller)
-            if LastOfThePreviusSequence <= getRequiredSmaller:
-              for i in keysReversed:
-                lastValue = collectionOfAllSequences[i][0]
-                print("lastValue" , lastValue)
-                countingSmallers = 0
-                for x in completeSequence:
-                  print("x" , x)
-                  if lastValue > x:
-                    countingSmallers += 1
-                  else:
-                    if countingSmallers > 0:
-                      print("collectionOfAllSequences Before" , collectionOfAllSequences[i])
-                      collectionOfAllSequences[i] = [firstOfTheSequence - 1]
-                      count += 1
-                      print("collectionOfAllSequences After" , collectionOfAllSequences[i])
-
-          listOfKeysOfSequences.append(k)
-
-                 
-              
-
-        else:
-          listOfKeys.append(k)
-
-  
-  #print(collectionOfAllSequences)
-  #print(len(arr)-1)
-  return count
-
 
 
 if True:
@@ -137,5 +26,4 @@ if True:
 
     result = modifySequence(arr)
     #result = modifySequence([1,2,2,3,4])
-    print(result)
-
+    #print(result)
