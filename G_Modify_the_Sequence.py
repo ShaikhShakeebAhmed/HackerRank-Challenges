@@ -14,18 +14,21 @@ def _lis(arr , n ):
         return 1
   
     # maxEndingHere is the length of LIS ending with arr[n-1] 
-    maxEndingHere = 1
+    maxEndingHere = 0
   
     """Recursively get all LIS ending with arr[0], arr[1]..arr[n-2] 
        IF arr[n-1] is maller than arr[n-1], and max ending with 
        arr[n-1] needs to be updated, then update it"""
     for i in range(1, n): 
         res = _lis(arr , i) 
+        # print(arr[i-1])
+        # print(arr[n-1])
         if arr[i-1] < arr[n-1] and res+1 > maxEndingHere: 
             maxEndingHere = res +1
   
     # Compare maxEndingHere with overall maximum. And 
     # update the overall maximum if needed 
+    # print(maximum , maxEndingHere)
     maximum = max(maximum , maxEndingHere) 
   
     return maxEndingHere 
@@ -40,6 +43,7 @@ def lis(arr):
       if 0 < arr[i] and arr[i] <= 1000000000:
         if arr[i] - i > 0:
           x.append(arr[i] - i)
+          print(x)
   
     # lenght of arr 
     n = len(x) 
@@ -50,6 +54,7 @@ def lis(arr):
     # The function _lis() stores its result in maximum 
     _lis(arr , n) 
     
+    print(arr)
     print (len(arr) - maximum)
   
 # Driver program to test the above function 
